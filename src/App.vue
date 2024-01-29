@@ -42,6 +42,12 @@ export default{
         },
       ]
     }
+  },
+  methods:{
+    removeList(index){
+      console.log('rimuovi', index);
+      this.todoList.splice(index, 1)
+    }
   }
 }
 </script>
@@ -50,16 +56,24 @@ export default{
 
   <h1>Grigliata</h1>
 
-  <ul>
-    <li v-for="list in todoList">
+  <ul v-if="todoList.length > 0">
+    
+    <li v-for="(list, index) in todoList">
 
       <span :style="{textDecoration: list.done ? 'line-through' : ''}">
         {{ list.text }}
+
+        <i @click="removeList(index)" class="fa-regular fa-circle-xmark"></i>
+
       </span>
 
     </li>
   </ul>
-  
+
+  <ul v-else="todoList.length === 0">
+    <p>Complimenti hai preso tutto. Buona grigliata!!!!</p>
+  </ul>
+
 </template>
 
 <style>
