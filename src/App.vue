@@ -56,8 +56,8 @@ export default{
 
     addList(){
       console.log(this.newList.text);
-      this.todoList.unshift(this.newList);
-      this.newList = '';
+      this.todoList.unshift(this.newList.text);
+      this.newList.text = '';
     }
   }
 }
