@@ -76,7 +76,7 @@ export default{
 
     <li v-for="(list, index) in todoList">
 
-      <span :style="{textDecoration: list.done ? 'line-through' : ''}">
+      <span :style="{textDecoration: list.done ? 'line-through' : ''}" @click="list.done = !list.done">
         {{ list.text }}
 
         <i @click="removeList(index)" class="fa-regular fa-circle-xmark"></i>
