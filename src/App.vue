@@ -68,7 +68,7 @@ export default{
   <h1>Grigliata</h1>
 
   <div>
-    <input type="text" v-model="newList.text">
+    <input type="text" v-model="newList.text" @keyup.enter="addList">
     <button @click="addList">Aggiungi</button>
   </div>
 
