@@ -56,7 +56,7 @@ export default{
 
     addList(){
       console.log(this.newList.text);
-      this.todoList.unshift(this.newList.text);
+      this.todoList.unshift({text :this.newList.text});
       this.newList.text = '';
     }
   }
@@ -69,7 +69,7 @@ export default{
 
   <div>
     <input type="text" v-model="newList.text">
-    <button @click="addList()">Aggiungi</button>
+    <button @click="addList">Aggiungi</button>
   </div>
 
   <ul v-if="todoList.length > 0">
@@ -86,7 +86,7 @@ export default{
     </li>
   </ul>
 
-  <ul v-else="todoList.length === 0">
+  <ul v-else>
     <p>Complimenti hai preso tutto. Buona grigliata!!!!</p>
   </ul>
 
